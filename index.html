@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MaksX - сайты для малого бизнеса с помощью нейросетей</title>
+  <meta name="description" content="Лендинги, сайты-визитки и редизайн за 1-2 дня из ваших фото, прайса и отзывов. Дополнительно - тексты, картинки, онлайн-запись, CRM и автоматизация в n8n.">
+  <link rel="icon" href="brand/logo/png/maksx-mark-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="brand/logo/png/maksx-mark-180.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Onest:wght@400;500&display=swap">
+  <link rel="stylesheet" href="brand/colors/brand.css">
+  <link rel="stylesheet" href="styles.css">
+  <script src="prices.js" defer></script>
+  <script src="main.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">К содержанию</a>
+
+  <header class="top">
+    <div class="wrap top-in">
+      <a class="logo" href="#main" aria-label="MaksX, в начало">Maks<span>X</span></a>
+      <nav class="nav" aria-label="Разделы">
+        <a href="#works">Работы</a>
+        <a href="#prices">Цены</a>
+        <a href="#process">Как работаю</a>
+        <a href="#faq">Вопросы</a>
+      </nav>
+      <a class="btn btn-sm" href="#contact">Обсудить сайт</a>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- Первый экран: окно браузера с настоящими работами -->
+    <section class="hero" aria-labelledby="hero-h">
+      <div class="wrap hero-in">
+        <div class="hero-text">
+          <h1 id="hero-h">Сайт для вашего дела - из того, что у вас уже есть</h1>
+          <p class="lead">Присылаете фото с телефона, прайс и пару слов о себе. Я собираю из этого лендинг или сайт-визитку с помощью нейросетей и показываю его по ссылке.</p>
+          <p class="hero-more">Если нужно больше - напишу тексты и посты, сделаю картинки, подключу онлайн-запись, CRM и автоматизацию в n8n.</p>
+          <div class="hero-cta">
+            <a class="btn" href="#contact">Обсудить сайт</a>
+            <a class="link" href="#works">Посмотреть работы</a>
+          </div>
+          <p class="hero-note">Первый час разбора задачи - бесплатно.</p>
+        </div>
+
+        <figure class="browser" aria-label="Примеры сайтов">
+          <p class="sticker" data-price="hero"></p>
+          <div class="browser-bar">
+            <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+            <div class="tabs" role="tablist" aria-label="Работы">
+              <button role="tab" aria-selected="true" aria-controls="shot" data-src="img/maxstyle.jpg" data-addr="maxstyle - редизайн" data-cap="Сайт парикмахера-стилиста: онлайн-запись, прайс, отзывы с Яндекс Карт.">MaxStyle</button>
+              <button role="tab" aria-selected="false" aria-controls="shot" tabindex="-1" data-src="img/cvetotip.jpg" data-addr="maxstyle / цветотип" data-cap="Подбор цвета волос по цветотипу: тест, сезоны, примерка оттенков и запись.">Цветотип</button>
+              <button role="tab" aria-selected="false" aria-controls="shot" tabindex="-1" data-src="img/gruming.jpg" data-addr="груминг - демо" data-cap="Демо для груминг-салона: цены до стрижки, запись по фото питомца.">Груминг</button>
+              <button role="tab" aria-selected="false" aria-controls="shot" tabindex="-1" data-src="img/aktyor.jpg" data-addr="актёр - демо" data-cap="Сайт-визитка актёра театра: роли, фото, шоурил, приглашение на пробы.">Актёр</button>
+              <button role="tab" aria-selected="false" aria-controls="shot" tabindex="-1" data-src="img/yurist.jpg" data-addr="юрист - демо" data-cap="Демо для арбитражного юриста: задачи, дела, разбор ситуации.">Юрист</button>
+              <button role="tab" aria-selected="false" aria-controls="shot" tabindex="-1" data-src="img/maksx.jpg" data-addr="maksx.ru" data-cap="Мой лендинг: заявка с формы через n8n сразу приходит в Telegram.">MaksX</button>
+            </div>
+          </div>
+          <div class="browser-addr" aria-hidden="true"><span class="addr">maxstyle - редизайн</span></div>
+          <div class="browser-view" id="shot" role="tabpanel">
+            <img src="img/maxstyle.jpg" width="1200" height="750" alt="Первый экран сайта MaxStyle">
+          </div>
+          <figcaption class="browser-cap">Сайт парикмахера-стилиста: онлайн-запись, прайс, отзывы с Яндекс Карт.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Что присылает заказчик и что из этого получается -->
+    <section class="sec sec-deep" aria-labelledby="mat-h">
+      <div class="wrap">
+        <h2 id="mat-h">Готовить ничего не нужно</h2>
+        <p class="sec-lead">Обычно у человека уже всё есть - просто разложено по телефону и переписке. Я собираю это в одну страницу.</p>
+        <div class="mat" role="table" aria-label="Что вы присылаете и что получается на сайте">
+          <div class="mat-head" role="row">
+            <span role="columnheader">Вы присылаете</span>
+            <span role="columnheader">На сайте</span>
+          </div>
+          <div class="mat-row" role="row">
+            <p role="cell">Фото работ, кабинета, себя - как есть, с телефона</p>
+            <p role="cell">Обработанные фото. Чего не хватает - дорисую нейросетью и честно подпишу</p>
+          </div>
+          <div class="mat-row" role="row">
+            <p role="cell">Прайс из заметок, из переписки или фото листа на стене</p>
+            <p role="cell">Понятный прайс с вилками цен и пояснением, от чего зависит сумма</p>
+          </div>
+          <div class="mat-row" role="row">
+            <p role="cell">Ссылку на Яндекс Карты или 2ГИС</p>
+            <p role="cell">Рейтинг и живые отзывы клиентов со ссылкой на оригинал</p>
+          </div>
+          <div class="mat-row" role="row">
+            <p role="cell">Голосовое на пять минут: чем занимаетесь и чем отличаетесь</p>
+            <p role="cell">Тексты сайта вашими словами, без «индивидуального подхода»</p>
+          </div>
+          <div class="mat-row" role="row">
+            <p role="cell">Где вы сейчас записываете клиентов</p>
+            <p role="cell">Кнопку записи или форму, заявки из которой приходят вам в Telegram или CRM</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Работы -->
+    <section class="sec" id="works" aria-labelledby="works-h">
+      <div class="wrap">
+        <h2 id="works-h">Последние работы</h2>
+        <p class="sec-lead">Мой собственный проект, лендинг MaksX и демо, которые я собрал под задачи заказчиков с биржи. В демо имена и контакты вымышленные.</p>
+
+        <article class="case case-main">
+          <div class="case-pics">
+            <img class="pic-a" src="img/maxstyle.jpg" width="1200" height="750" loading="lazy" alt="Главная страница сайта MaxStyle">
+            <img class="pic-b" src="img/cvetotip.jpg" width="1200" height="750" loading="lazy" alt="Страница подбора цвета по цветотипу">
+          </div>
+          <div class="case-text">
+            <p class="tag">Редизайн, свой проект</p>
+            <h3>MaxStyle: сайт парикмахера с подбором цвета</h3>
+            <p>Было: одностраничник с прайсом, фото из фотобанка, отзывами и онлайн-записью.</p>
+            <p>Сделал: новый лаконичный дизайн, подобрал и адаптировал картинки, подтянул отзывы с Яндекс Карт, запись идёт через CRM. Отдельная страница помогает клиенту понять свой цветотип, примерить оттенки и сразу записаться на окрашивание.</p>
+            <a class="link" href="https://max19761007.github.io/maxstyle-demo/" target="_blank" rel="noopener">Открыть сайт</a>
+          </div>
+        </article>
+
+        <div class="case-list">
+          <article class="case">
+            <img src="img/maksx.jpg" width="1200" height="750" loading="lazy" alt="Первый экран лендинга MaksX">
+            <div>
+              <p class="tag">Лендинг и n8n</p>
+              <h3>MaksX: лендинг с заявками в Telegram</h3>
+              <p>Форма на сайте передаёт заявку в сценарий n8n, и она сразу приходит мне в Telegram. Из него же сделан контент-конвейер: посты собираются в Google Таблицу с расписанием, бот публикует их в Telegram и MAX.</p>
+              <a class="link" href="https://maksx.ru" target="_blank" rel="noopener">Открыть сайт</a>
+            </div>
+          </article>
+          <article class="case">
+            <img src="img/gruming.jpg" width="1200" height="750" loading="lazy" alt="Первый экран демо груминг-салона">
+            <div>
+              <p class="tag">Демо под заказ</p>
+              <h3>Груминг-салон</h3>
+              <p>Цены видны до стрижки, записаться можно, прислав фото питомца. Фото сделаны нейросетью.</p>
+            </div>
+          </article>
+          <article class="case">
+            <img src="img/aktyor.jpg" width="1200" height="750" loading="lazy" alt="Первый экран демо сайта актёра">
+            <div>
+              <p class="tag">Демо под заказ</p>
+              <h3>Сайт-визитка актёра театра</h3>
+              <p>Роли, фото, шоурил и кнопка приглашения на пробы. Дизайн с нуля, без шаблона.</p>
+            </div>
+          </article>
+          <article class="case">
+            <img src="img/yurist.jpg" width="1200" height="750" loading="lazy" alt="Первый экран демо сайта юриста">
+            <div>
+              <p class="tag">Демо для портфолио</p>
+              <h3>Арбитражный юрист</h3>
+              <p>Задачи, с которыми приходят, судебные дела и кнопка «Разобрать ситуацию».</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Цены: заполняются из prices.js -->
+    <section class="sec sec-deep" id="prices" aria-labelledby="prices-h">
+      <div class="wrap">
+        <h2 id="prices-h">Цены и сроки</h2>
+        <p class="sec-lead">Точную сумму называю после разбора и до начала работы - потом она не растёт.</p>
+        <div class="price-cols">
+          <div>
+            <h3 class="price-h">Сайты</h3>
+            <ul class="price-list price-list-main" data-prices="sites"></ul>
+          </div>
+          <div>
+            <h3 class="price-h">Дополнительно - к сайту или отдельно</h3>
+            <ul class="price-list" data-prices="extras"></ul>
+          </div>
+        </div>
+        <noscript><p>Цены не загрузились. Напишите мне в <a href="https://t.me/MaxSmoll">Telegram</a> - пришлю прайс.</p></noscript>
+      </div>
+    </section>
+
+    <!-- Как работаю: последовательность, поэтому с номерами -->
+    <section class="sec" id="process" aria-labelledby="process-h">
+      <div class="wrap">
+        <h2 id="process-h">Как проходит работа</h2>
+        <ol class="steps">
+          <li>
+            <h3>Разбор</h3>
+            <p>Час в Telegram или по видеосвязи, бесплатно. Разбираемся, для кого сайт и что посетитель должен на нём сделать.</p>
+          </li>
+          <li>
+            <h3>Материалы</h3>
+            <p>Вы присылаете то, что есть. Тексты пишу сам по вашему голосовому, недостающие картинки делаю нейросетью.</p>
+          </li>
+          <li>
+            <h3>Сайт по ссылке</h3>
+            <p>Показываю готовый сайт, смотрим его на телефоне и компьютере, вношу правки.</p>
+          </li>
+          <li>
+            <h3>Запуск</h3>
+            <p>Размещаю на вашем домене или переношу в Тильду, подключаю заявки и запись. Первый месяц правок - бесплатно.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Вопросы -->
+    <section class="sec sec-deep" id="faq" aria-labelledby="faq-h">
+      <div class="wrap faq-wrap">
+        <h2 id="faq-h">Частые вопросы</h2>
+        <div class="faq">
+          <details>
+            <summary>Нейросеть сделает шаблонный сайт?</summary>
+            <p>Нет. Нейросети ускоряют работу с текстами и картинками, а структуру, дизайн и проверку на телефоне я делаю сам под ваше дело. Посмотрите работы выше - они не похожи друг на друга.</p>
+          </details>
+          <details>
+            <summary>У меня нет хороших фото. Что делать?</summary>
+            <p>Начнём с того, что есть, остальное сделаю нейросетью и подпишу, что это не ваши работы. Когда появятся свои фото, заменю их в рамках сопровождения.</p>
+          </details>
+          <details>
+            <summary>Нужен ли домен и хостинг?</summary>
+            <p>Сайт может работать по бесплатной ссылке. Если хотите свой адрес, помогу купить домен на ваше имя и подключу его - домен остаётся вашим.</p>
+          </details>
+          <details>
+            <summary>Смогу ли я сам менять цены и тексты?</summary>
+            <p>Да, если перенести сайт в Тильду - там всё правится в редакторе. Или присылайте правки мне, в первый месяц это бесплатно.</p>
+          </details>
+          <details>
+            <summary>Куда будут приходить заявки?</summary>
+            <p>Куда удобно: в Telegram, на почту, в Google Таблицу или в вашу CRM. Связываю это через n8n.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- Заявка -->
+    <section class="sec contact" id="contact" aria-labelledby="contact-h">
+      <div class="wrap contact-in">
+        <div class="contact-text">
+          <h2 id="contact-h">Расскажите, какой сайт нужен</h2>
+          <p>Отвечу в течение дня и предложу время для бесплатного разбора.</p>
+          <p class="contact-alt">Удобнее написать самому:</p>
+          <ul class="contacts">
+            <li><a href="https://t.me/MaxSmoll" target="_blank" rel="noopener">Telegram</a></li>
+            <li><a href="https://max.ru/u/f9LHodD0cOKWJ7ifAfs9Ckm4t7YH3zszXqfkqQuyvrZZg6iDipzBP9mNk2c" target="_blank" rel="noopener">MAX</a></li>
+            <li><a href="https://www.youtube.com/@MaksX-Bag" target="_blank" rel="noopener">YouTube «Баг в прошивке»</a></li>
+          </ul>
+        </div>
+
+        <form class="lead-form" id="lead-form" novalidate>
+          <div class="field">
+            <label for="f-name">Как к вам обращаться</label>
+            <input id="f-name" name="name" type="text" autocomplete="given-name" required>
+          </div>
+          <div class="field">
+            <label for="f-contact">Telegram или телефон</label>
+            <input id="f-contact" name="contact" type="text" autocomplete="tel" required placeholder="@username или +7">
+          </div>
+
+          <fieldset class="chips">
+            <legend>Что нужно</legend>
+            <label><input type="checkbox" name="service" value="Лендинг или визитка"><span>Лендинг или визитка</span></label>
+            <label><input type="checkbox" name="service" value="Редизайн"><span>Редизайн</span></label>
+            <label><input type="checkbox" name="service" value="Сайт из нескольких страниц"><span>Несколько страниц</span></label>
+            <label><input type="checkbox" name="service" value="Тексты, посты, картинки"><span>Тексты, посты, картинки</span></label>
+            <label><input type="checkbox" name="service" value="Запись или CRM"><span>Запись или CRM</span></label>
+            <label><input type="checkbox" name="service" value="Автоматизация n8n"><span>Автоматизация n8n</span></label>
+          </fieldset>
+
+          <div class="field">
+            <label for="f-task">Чем вы занимаетесь <span class="opt">- можно пропустить</span></label>
+            <textarea id="f-task" name="task" rows="3" placeholder="Например: маникюр на дому, Подольск, есть страница во ВКонтакте"></textarea>
+          </div>
+
+          <!-- Ловушка для спам-ботов: люди это поле не видят и не заполняют -->
+          <div class="hp" aria-hidden="true">
+            <label for="f-website">Сайт</label>
+            <input id="f-website" name="website" type="text" tabindex="-1" autocomplete="off">
+          </div>
+
+          <!-- Согласие отдельной галочкой, не отмечено заранее (152-ФЗ, ст. 9) -->
+          <label class="agree">
+            <input type="checkbox" name="agree" id="f-agree" required>
+            <span>Соглашаюсь на <a href="politika.html#soglasie" target="_blank">обработку персональных данных</a> по <a href="politika.html" target="_blank">политике конфиденциальности</a></span>
+          </label>
+
+          <button class="btn" type="submit">Отправить заявку</button>
+          <p class="form-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="wrap foot-in">
+      <p>ИП Смоляков Максим Игорьевич, ИНН 504308849630. <a href="mailto:max_10076@mail.ru">max_10076@mail.ru</a></p>
+      <a class="link" href="politika.html">Политика конфиденциальности</a>
+    </div>
+  </footer>
+</body>
+</html>
