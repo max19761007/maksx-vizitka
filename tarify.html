@@ -1,0 +1,499 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Тарифы на сайт - MaksX</title>
+<meta name="description" content="Сайт для мастера, салона или студии: Лайт 10 000 ₽, С записью 20 000 ₽, Кино 39 000 ₽. Бесплатное демо до оплаты.">
+<link rel="icon" href="brand/logo/png/maksx-mark-32.png">
+<link rel="apple-touch-icon" href="brand/logo/png/maksx-mark-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Onest:wght@400;500&display=swap">
+<link rel="stylesheet" href="brand/colors/brand.css">
+<style>
+  :root {
+    --font-display: "Montserrat", "Arial", sans-serif;
+    --font-sans: "Onest", "Segoe UI", system-ui, sans-serif;
+    --wrap: 1120px;
+  }
+  *, *::before, *::after { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--night);
+    color: var(--ink);
+    font: 400 16px/25px var(--font-sans);
+  }
+  a { color: var(--bug-text); }
+  a:focus-visible, button:focus-visible { outline: none; box-shadow: var(--focus-ring); }
+  .wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 20px; }
+  h1, h2, h3 { font-family: var(--font-display); margin: 0; }
+  h2 { font-size: 34px; line-height: 40px; font-weight: 700; letter-spacing: -0.01em; }
+  p { margin: 0; }
+
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+    min-height: 48px; padding: 0 24px;
+    border-radius: var(--radius-pill);
+    background: var(--bug); color: var(--on-bug);
+    font: 500 16px/1 var(--font-sans); text-decoration: none;
+    border: 0; cursor: pointer;
+  }
+  .btn:hover { background: var(--bug-text); }
+  .btn-ghost { background: transparent; color: var(--ink); border: 1px solid var(--line); }
+  .btn-ghost:hover { background: var(--night-raised); }
+
+  /* Шапка */
+  .top { display: flex; align-items: center; justify-content: space-between; padding: 20px 0; }
+  .logo { font: 700 30px/1 var(--font-display); letter-spacing: -0.01em; color: var(--ink); text-decoration: none; }
+  .logo b { color: var(--bug); font-weight: 700; }
+  .top .btn { min-height: 40px; padding: 0 18px; font-size: 15px; }
+
+  /* Первый экран */
+  .hero { display: grid; grid-template-columns: 1fr 340px; gap: 56px; align-items: center; padding: 40px 0 88px; }
+  .hero h1 { font-size: 52px; line-height: 58px; font-weight: 800; letter-spacing: -0.02em; }
+  .hero h1 span { display: block; }
+  .lead { font-size: 19px; line-height: 29px; font-weight: 500; color: var(--ink-muted); max-width: 34em; margin-top: 24px; }
+  .sticker {
+    display: inline-block; margin-top: 32px; padding: 14px 20px;
+    background: var(--volt); color: var(--on-volt);
+    border-radius: var(--radius-lg);
+    font: 500 16px/23px var(--font-sans); max-width: 30em;
+    transform: rotate(-1.2deg);
+  }
+  .sticker strong { font: 800 18px/1 var(--font-display); display: block; margin-bottom: 6px; }
+
+  /* Телефон */
+  .stage { display: flex; flex-direction: column; align-items: center; gap: 20px; }
+  .tabs { display: flex; gap: 4px; padding: 4px; background: var(--night-raised); border-radius: var(--radius-pill); }
+  .tab {
+    border: 0; background: transparent; color: var(--ink-muted);
+    font: 500 15px/1 var(--font-sans); padding: 11px 16px; border-radius: var(--radius-pill); cursor: pointer;
+  }
+  .tab[aria-selected="true"] { background: var(--glass); color: var(--on-glass); }
+  .phone {
+    width: 260px; height: 520px; padding: 10px;
+    background: var(--deep); border-radius: 40px;
+    border: 1px solid var(--line);
+  }
+  .screen { position: relative; height: 100%; border-radius: 31px; overflow: hidden; background: #F4F1EC; }
+  .view { position: absolute; inset: 0; padding: 30px 16px 16px; opacity: 0; visibility: hidden; transition: opacity .25s ease; }
+  .view.on { opacity: 1; visibility: visible; }
+  .caption { text-align: center; font-size: 15px; line-height: 22px; color: var(--ink-muted); min-height: 44px; max-width: 300px; }
+  .caption b { color: var(--ink); font-weight: 500; }
+
+  /* Схема сайта внутри телефона - условные блоки, не настоящий сайт */
+  .s-bar { height: 8px; border-radius: 4px; background: #D9D3CA; }
+  .s-title { height: 16px; width: 78%; border-radius: 5px; background: #2B2724; margin: 14px 0 8px; }
+  .s-sub { width: 60%; }
+  .s-photo { border-radius: 12px; background: #C9B9A6; }
+  .s-hero-photo { height: 132px; margin-top: 12px; }
+  .s-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 6px; margin-top: 14px; }
+  .s-grid .s-photo { height: 58px; }
+  .s-price { display: flex; justify-content: space-between; align-items: center; padding: 9px 0; border-bottom: 1px solid #E2DBD1; }
+  .s-price .s-bar { width: 52%; }
+  .s-price i { width: 34px; height: 8px; border-radius: 4px; background: #2B2724; }
+  .s-review { margin-top: 12px; padding: 10px; background: #fff; border-radius: 10px; }
+  .s-stars { color: #E2A81C; font-size: 11px; letter-spacing: 1px; line-height: 1; margin-bottom: 7px; }
+  .s-contacts { position: absolute; left: 16px; right: 16px; bottom: 16px; display: flex; gap: 6px; }
+  .s-contacts span { flex: 1; height: 34px; border-radius: 17px; background: #2B2724; }
+  .s-contacts span:first-child { background: #25A35A; }
+  .s-slots { display: flex; gap: 6px; margin-top: 10px; flex-wrap: wrap; }
+  .s-slots span { font: 500 11px/1 var(--font-sans); color: #2B2724; padding: 7px 9px; border-radius: 8px; background: #fff; border: 1px solid #E2DBD1; }
+  .s-slots span.pick { background: #2B2724; color: #fff; border-color: #2B2724; }
+  .s-days { display: flex; gap: 5px; margin-top: 12px; }
+  .s-days span { flex: 1; text-align: center; font: 500 10px/1 var(--font-sans); color: #8A7F74; padding: 7px 0; border-radius: 8px; background: #fff; }
+  .s-days span.pick { background: #C9B9A6; color: #2B2724; }
+  .s-book { position: absolute; left: 16px; right: 16px; bottom: 16px; height: 40px; border-radius: 20px; background: #25A35A; color: #fff; font: 500 13px/40px var(--font-sans); text-align: center; }
+  .s-label { font: 500 11px/1 var(--font-sans); color: #8A7F74; margin-top: 16px; }
+
+  .view-kino { background: #17110E; padding: 0; }
+  .kino-strip { position: absolute; left: 0; right: 0; top: 0; display: flex; flex-direction: column; animation: reel 9s ease-in-out infinite; }
+  .kino-frame { height: 300px; flex: none; position: relative; overflow: hidden; }
+  .kino-frame .bg { position: absolute; inset: 0; }
+  .kino-frame:nth-child(1) .bg { background: radial-gradient(120% 80% at 30% 20%, #8C5E43 0%, #3A2419 55%, #17110E 100%); }
+  .kino-frame:nth-child(2) .bg { background: radial-gradient(110% 90% at 70% 40%, #6E7A5E 0%, #2C3024 55%, #17110E 100%); }
+  .kino-frame:nth-child(3) .bg { background: radial-gradient(120% 80% at 40% 60%, #A07A55 0%, #45301F 55%, #17110E 100%); }
+  .kino-frame .txt { position: absolute; left: 18px; right: 40px; bottom: 34px; }
+  .kino-frame .t1 { height: 18px; width: 90%; border-radius: 4px; background: #F4ECE2; margin-bottom: 8px; }
+  .kino-frame .t2 { height: 18px; width: 64%; border-radius: 4px; background: #F4ECE2; }
+  .kino-frame .t3 { height: 7px; width: 70%; border-radius: 4px; background: #F4ECE2; opacity: .45; margin-top: 14px; }
+  .letterbox { position: absolute; left: 0; right: 0; height: 26px; background: #000; z-index: 2; }
+  .letterbox.up { top: 0; } .letterbox.down { bottom: 0; }
+  .kino-book { position: absolute; left: 16px; right: 16px; bottom: 36px; z-index: 3; height: 38px; border-radius: 19px; background: #F4ECE2; color: #17110E; font: 500 13px/38px var(--font-sans); text-align: center; }
+  @keyframes reel {
+    0%, 22% { transform: translateY(0); }
+    33%, 55% { transform: translateY(-300px); }
+    66%, 88% { transform: translateY(-600px); }
+    100% { transform: translateY(0); }
+  }
+
+  /* Тарифы */
+  section { padding: 88px 0; }
+  .sec-head { max-width: 40em; margin-bottom: 40px; }
+  .sec-head p { color: var(--ink-muted); margin-top: 12px; font-size: 17px; line-height: 27px; }
+  .plans { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; align-items: stretch; }
+  .plan { display: flex; flex-direction: column; padding: 28px; border-radius: var(--radius-lg); background: var(--night-raised); }
+  .plan.main { background: var(--glass); color: var(--on-glass); }
+  .plan-name { font: 700 24px/30px var(--font-display); }
+  .plan-tag { display: inline-block; margin-left: 8px; vertical-align: 3px; padding: 5px 10px; border-radius: var(--radius-pill); background: var(--night); color: var(--ink); font: 500 13px/1 var(--font-sans); }
+  .plan-price { font: 800 40px/1 var(--font-display); letter-spacing: -0.02em; margin-top: 20px; white-space: nowrap; }
+  .plan-term { margin-top: 8px; color: var(--ink-muted); font-size: 15px; }
+  .plan.main .plan-term, .plan.main .plan-for, .plan.main .plan-base { color: #CFE3DE; }
+  .plan-for { margin-top: 20px; color: var(--ink-muted); }
+  .plan-base { margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--line); color: var(--ink-muted); font-size: 15px; }
+  .plan.main .plan-base { border-color: rgba(242,245,243,.22); }
+  .plan ul { list-style: none; padding: 0; margin: 16px 0 28px; display: grid; gap: 10px; }
+  .plan li { position: relative; padding-left: 26px; }
+  .plan li::before { content: ""; position: absolute; left: 2px; top: 8px; width: 12px; height: 7px; border-left: 2px solid var(--bug-text); border-bottom: 2px solid var(--bug-text); transform: rotate(-45deg); }
+  .plan.main li::before { border-color: var(--on-glass); }
+  .plan .btn { margin-top: auto; }
+  .plan.main .btn { background: var(--night); color: var(--ink); }
+  .plan.main .btn:hover { background: var(--deep); }
+
+  /* Сравнение с рынком */
+  .market { background: var(--deep); }
+  .scale-row { display: grid; grid-template-columns: 180px 1fr; gap: 24px; align-items: center; padding: 22px 0; border-top: 1px solid var(--line); }
+  .scale-row:last-of-type { border-bottom: 1px solid var(--line); }
+  .scale-name { font: 700 18px/24px var(--font-display); }
+  .scale-name small { display: block; font: 400 14px/20px var(--font-sans); color: var(--ink-muted); margin-top: 2px; }
+  .track { position: relative; height: 64px; }
+  .track::before { content: ""; position: absolute; left: 0; right: 0; top: 30px; height: 2px; background: var(--line); }
+  .band { position: absolute; top: 24px; height: 14px; border-radius: 7px; background: var(--line); }
+  .band.studio { background: #3A4F4B; }
+  .band.open { border-top-right-radius: 0; border-bottom-right-radius: 0; }
+  .band-label { position: absolute; top: 44px; font-size: 13px; line-height: 18px; color: var(--ink-muted); white-space: nowrap; transform: translateX(-50%); }
+  .me { position: absolute; top: 20px; width: 22px; height: 22px; margin-left: -11px; border-radius: 50%; background: var(--bug); border: 3px solid var(--deep); }
+  .me-label { position: absolute; top: 0; transform: translateX(-50%); font: 700 14px/18px var(--font-display); color: var(--bug-text); white-space: nowrap; }
+  .axis { display: grid; grid-template-columns: 180px 1fr; gap: 24px; margin-top: 12px; }
+  .axis-ticks { position: relative; height: 18px; font-size: 13px; color: var(--ink-muted); }
+  .axis-ticks span { position: absolute; transform: translateX(-50%); white-space: nowrap; }
+  .axis-ticks span:first-child { transform: none; }
+  .axis-ticks span:last-child { transform: translateX(-100%); }
+  .legend { display: flex; flex-wrap: wrap; gap: 20px; margin-top: 28px; font-size: 14px; color: var(--ink-muted); }
+  .legend i { display: inline-block; width: 22px; height: 10px; border-radius: 5px; margin-right: 8px; vertical-align: 0; }
+  .legend .dot { width: 14px; height: 14px; border-radius: 50%; background: var(--bug); vertical-align: -2px; }
+  .note { margin-top: 20px; font-size: 14px; line-height: 21px; color: var(--ink-muted); max-width: 60em; }
+
+  /* Отдельные расходы */
+  .extra { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+  .extra h3 { font-size: 20px; line-height: 26px; }
+  .extra .sum { font: 700 18px/24px var(--font-display); color: var(--bug-text); margin-top: 10px; }
+  .extra p { color: var(--ink-muted); margin-top: 10px; }
+
+  /* Как работаем */
+  .steps { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; counter-reset: step; }
+  .steps li { counter-increment: step; padding-top: 20px; border-top: 2px solid var(--line); }
+  .steps li:first-child { border-color: var(--bug); }
+  .steps li::before { content: counter(step); display: block; font: 800 34px/1 var(--font-display); color: var(--bug-text); margin-bottom: 14px; }
+  .steps h3 { font-size: 18px; line-height: 24px; }
+  .steps p { color: var(--ink-muted); margin-top: 8px; }
+  .safe { margin-top: 40px; padding: 20px 24px; border-radius: var(--radius-lg); background: var(--night-raised); max-width: 46em; }
+
+  /* Финал */
+  .final { padding: 72px 0 96px; }
+  .final-box { padding: 48px; border-radius: var(--radius-lg); background: var(--glass); color: var(--on-glass); }
+  .final-box h2 { max-width: 18em; }
+  .final-box p { margin-top: 14px; color: #CFE3DE; max-width: 36em; font-size: 17px; line-height: 27px; }
+  .final-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+  .final-box .btn-ghost { color: var(--on-glass); border-color: rgba(242,245,243,.35); }
+  .final-box .btn-ghost:hover { background: rgba(13,18,22,.2); }
+  footer { padding: 28px 0 40px; border-top: 1px solid var(--line); color: var(--ink-muted); font-size: 14px; }
+  footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; }
+
+  @media (max-width: 960px) {
+    .hero { grid-template-columns: 1fr; gap: 48px; padding-bottom: 64px; }
+    .plans { grid-template-columns: 1fr; max-width: 560px; }
+    .extra { grid-template-columns: 1fr; gap: 28px; }
+    .steps { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 600px) {
+    body { font-size: 16px; }
+    .wrap { padding: 0 16px; }
+    .hero { padding-top: 16px; }
+    .hero h1 { font-size: 36px; line-height: 41px; }
+    h2 { font-size: 28px; line-height: 34px; }
+    section { padding: 64px 0; }
+    .plan { padding: 24px; }
+    .scale-row, .axis { grid-template-columns: 1fr; gap: 6px; }
+    .axis > div:first-child { display: none; }
+    .steps { grid-template-columns: 1fr; }
+    .final-box { padding: 28px 22px; }
+    .top .btn span { display: none; }
+  }
+  @media (max-width: 360px) {
+    .tab { padding: 10px 11px; font-size: 14px; }
+    .plan-price { font-size: 34px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .kino-strip { animation: none; }
+    .view { transition: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="top">
+    <a class="logo" href="./" aria-label="MaksX - на главную">Maks<b>X</b></a>
+    <a class="btn btn-ghost" href="https://t.me/MaxSmoll">Написать <span>в Telegram</span></a>
+  </header>
+
+  <div class="hero">
+    <div>
+      <h1><span>Сайт для мастера,</span> <span>салона или студии</span> <span>от 10 000 ₽</span></h1>
+      <p class="lead">Одна страница, где клиент видит цены, ваши работы и отзывы и сразу записывается. Срок 2-7 дней, цена известна до начала работы.</p>
+      <p class="sticker"><strong>Демо - бесплатно</strong>Соберу черновик сайта по вашей карточке на Яндекс Картах. Вы увидите, как он выглядит, прежде чем платить.</p>
+    </div>
+
+    <div class="stage">
+      <div class="tabs" role="tablist" aria-label="Как выглядит сайт в каждом тарифе">
+        <button class="tab" role="tab" id="t-lite" aria-controls="v-lite" aria-selected="false" tabindex="-1">Лайт</button>
+        <button class="tab" role="tab" id="t-book" aria-controls="v-book" aria-selected="true">С записью</button>
+        <button class="tab" role="tab" id="t-kino" aria-controls="v-kino" aria-selected="false" tabindex="-1">Кино</button>
+      </div>
+
+      <div class="phone" aria-hidden="true">
+        <div class="screen">
+          <div class="view" id="v-lite" role="tabpanel" aria-labelledby="t-lite">
+            <div class="s-bar" style="width:34%"></div>
+            <div class="s-title"></div>
+            <div class="s-bar s-sub"></div>
+            <div class="s-photo s-hero-photo"></div>
+            <div class="s-price"><span class="s-bar"></span><i></i></div>
+            <div class="s-price"><span class="s-bar" style="width:44%"></span><i></i></div>
+            <div class="s-price"><span class="s-bar" style="width:58%"></span><i></i></div>
+            <div class="s-review"><div class="s-stars">★★★★★</div><div class="s-bar"></div></div>
+            <div class="s-contacts"><span></span><span></span><span></span></div>
+          </div>
+
+          <div class="view on" id="v-book" role="tabpanel" aria-labelledby="t-book">
+            <div class="s-bar" style="width:34%"></div>
+            <div class="s-title" style="width:66%"></div>
+            <div class="s-grid"><div class="s-photo"></div><div class="s-photo"></div><div class="s-photo"></div></div>
+            <div class="s-label">Выберите день</div>
+            <div class="s-days"><span>пн</span><span class="pick">вт</span><span>ср</span><span>чт</span><span>пт</span></div>
+            <div class="s-label">Свободное время</div>
+            <div class="s-slots"><span>10:00</span><span class="pick">12:30</span><span>15:00</span><span>17:30</span><span>19:00</span></div>
+            <div class="s-price" style="margin-top:12px"><span class="s-bar"></span><i></i></div>
+            <div class="s-book">Записаться</div>
+          </div>
+
+          <div class="view view-kino" id="v-kino" role="tabpanel" aria-labelledby="t-kino">
+            <div class="letterbox up"></div>
+            <div class="kino-strip">
+              <div class="kino-frame"><div class="bg"></div><div class="txt"><div class="t1"></div><div class="t2"></div><div class="t3"></div></div></div>
+              <div class="kino-frame"><div class="bg"></div><div class="txt"><div class="t1" style="width:70%"></div><div class="t3"></div></div></div>
+              <div class="kino-frame"><div class="bg"></div><div class="txt"><div class="t1" style="width:80%"></div><div class="t2" style="width:50%"></div></div></div>
+            </div>
+            <div class="kino-book">Записаться</div>
+            <div class="letterbox down"></div>
+          </div>
+        </div>
+      </div>
+
+      <p class="caption" id="caption" aria-live="polite"></p>
+    </div>
+  </div>
+</div>
+
+<section id="tarify">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Тарифы</h2>
+      <p>Каждый следующий тариф включает всё из предыдущего. Тексты, фото и цены берём из вашей карточки на Картах, недостающее дополните вы.</p>
+    </div>
+
+    <div class="plans">
+      <article class="plan">
+        <h3 class="plan-name">Лайт</h3>
+        <p class="plan-price">10 000 ₽</p>
+        <p class="plan-term">2-3 дня</p>
+        <p class="plan-for">Когда сайта нет совсем и нужна понятная страница вместо пустой ссылки в карточке.</p>
+        <ul>
+          <li>Одна страница: о вас, услуги и цены, фото работ, отзывы с Карт, адрес и карта</li>
+          <li>Кнопки «Позвонить», WhatsApp, Telegram, MAX</li>
+          <li>Удобно смотреть с телефона</li>
+          <li>Подключение вашего домена и ссылка в карточке на Яндекс Картах</li>
+          <li>2 круга правок</li>
+        </ul>
+        <a class="btn" href="https://t.me/MaxSmoll">Хочу «Лайт»</a>
+      </article>
+
+      <article class="plan main">
+        <h3 class="plan-name">С записью <span class="plan-tag">Подойдёт большинству</span></h3>
+        <p class="plan-price">20 000 ₽</p>
+        <p class="plan-term">3-5 дней</p>
+        <p class="plan-for">Когда хочется, чтобы клиенты записывались сами, без переписки и звонков.</p>
+        <p class="plan-base">Всё из «Лайта», плюс:</p>
+        <ul>
+          <li>Онлайн-запись: YCLIENTS, SONLINE, DIKIDI или заявка, которая сразу приходит вам в Telegram</li>
+          <li>Прайс по категориям, мастера, ответы на частые вопросы</li>
+          <li>Яндекс Метрика: видно, сколько людей нажали «Записаться»</li>
+          <li>Базовая настройка под поиск Яндекса</li>
+          <li>Первый месяц сопровождения бесплатно</li>
+        </ul>
+        <a class="btn" href="https://t.me/MaxSmoll">Хочу «С записью»</a>
+      </article>
+
+      <article class="plan">
+        <h3 class="plan-name">Кино</h3>
+        <p class="plan-price">39 000 ₽</p>
+        <p class="plan-term">5-7 дней</p>
+        <p class="plan-for">Когда важно выделиться среди соседей: премиальный салон, барбершоп, студия.</p>
+        <p class="plan-base">Всё из «С записью», плюс:</p>
+        <ul>
+          <li>Сцены при прокрутке: кадры сменяются как в фильме</li>
+          <li>Картинки в ваших цветах: ваши фото и иллюстрации, созданные нейросетью</li>
+          <li>Вертикальный ролик о сайте на 30-50 секунд для сторис, ВК и Telegram</li>
+          <li>3 круга правок</li>
+        </ul>
+        <a class="btn" href="https://t.me/MaxSmoll">Хочу «Кино»</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="market">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Сколько это стоит в Москве</h2>
+      <p>Я сравнил прайсы частных исполнителей и веб-студий в октябре 2026 года. Студии берут больше за менеджеров, офис и долгие согласования. Я делаю сайт сам, и демо вы видите ещё до оплаты.</p>
+    </div>
+
+    <div class="scale" role="img" aria-label="Лайт: частные исполнители 5-20 тысяч, у меня 10 тысяч. С записью: готовые шаблоны около 30 тысяч, студии 70-100 тысяч, у меня 20 тысяч. Кино: студии от 80 до 300 тысяч, у меня 39 тысяч.">
+      <div class="scale-row">
+        <div class="scale-name">Лайт<small>простая страница</small></div>
+        <div class="track">
+          <div class="band" style="left:4.17%;width:12.5%"></div>
+          <div class="band-label" style="left:4.17%;transform:none">частники 5-20 тыс.</div>
+          <div class="me" style="left:8.33%"></div>
+          <div class="me-label" style="left:8.33%">10 000</div>
+        </div>
+      </div>
+      <div class="scale-row">
+        <div class="scale-name">С записью<small>страница + онлайн-запись</small></div>
+        <div class="track">
+          <div class="band" style="left:24%;width:2px"></div>
+          <div class="band-label" style="left:25%">шаблон ~30 тыс.</div>
+          <div class="band studio" style="left:58.3%;width:25%"></div>
+          <div class="band-label" style="left:70.8%">студии 70-100 тыс.</div>
+          <div class="me" style="left:16.67%"></div>
+          <div class="me-label" style="left:16.67%">20 000</div>
+        </div>
+      </div>
+      <div class="scale-row">
+        <div class="scale-name">Кино<small>сайт с анимацией</small></div>
+        <div class="track">
+          <div class="band studio open" style="left:66.7%;width:33.3%"></div>
+          <div class="band-label" style="right:0;transform:none">студии 80-300 тыс.</div>
+          <div class="me" style="left:32.5%"></div>
+          <div class="me-label" style="left:32.5%">39 000</div>
+        </div>
+      </div>
+      <div class="axis">
+        <div></div>
+        <div class="axis-ticks"><span style="left:0">0</span><span style="left:25%">30 тыс.</span><span style="left:50%">60 тыс.</span><span style="left:75%">90 тыс.</span><span style="left:100%">120+ тыс.</span></div>
+      </div>
+    </div>
+
+    <div class="legend">
+      <span><i style="background:var(--line)"></i>частные исполнители и шаблоны</span>
+      <span><i style="background:#3A4F4B"></i>веб-студии</span>
+      <span><i class="dot"></i>MaksX</span>
+    </div>
+    <p class="note">Источники: Профи.ру, YouDo, прайсы московских студий (Lead.Media, Grampus, Pixel Plus, Darvin Digital, avodigital) и обзоры цен на лендинги за 2026 год.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Что оплачивается отдельно</h2>
+      <p>Чтобы через месяц не было сюрпризов, перечисляю всё заранее.</p>
+    </div>
+    <div class="extra">
+      <div>
+        <h3>Сопровождение</h3>
+        <p class="sum">3 000 ₽ в месяц, по желанию</p>
+        <p>Меняю цены и фото, добавляю акции, делаю мелкие правки до часа в месяц, слежу, чтобы сайт и запись работали.</p>
+      </div>
+      <div>
+        <h3>Домен и хостинг</h3>
+        <p class="sum">от нескольких сотен ₽ в год</p>
+        <p>Домен вида salon.ru оформляется на вас. Хостинг на GitHub Pages бесплатный. Если нужна Тильда, её тариф стоит около 750 ₽ в месяц.</p>
+      </div>
+      <div>
+        <h3>Сервис онлайн-записи</h3>
+        <p class="sum">только если его ещё нет</p>
+        <p>Если вы уже записываете через YCLIENTS или DIKIDI, подключу его. Если нет, подберём вариант: у YCLIENTS подписка примерно от 690 ₽ в месяц, есть и бесплатные сервисы.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Как работаем</h2>
+    </div>
+    <ol class="steps">
+      <li><h3>Демо</h3><p>Бесплатно собираю черновик сайта по вашей карточке: фото, цены, отзывы. Смотрите с телефона и решаете.</p></li>
+      <li><h3>Предоплата 50%</h3><p>Дорабатываю сайт под ваши фото, тексты и цены, подключаю запись.</p></li>
+      <li><h3>Правки</h3><p>Два круга правок в «Лайте» и «С записью», три в «Кино». Правки - словами в мессенджере.</p></li>
+      <li><h3>Запуск, оплата 50%</h3><p>Сайт на вашем домене, ссылка в карточке на Картах. Вторую половину оплачиваете после приёмки.</p></li>
+    </ol>
+    <p class="safe">Если спокойнее работать через посредника, оформим безопасную сделку на Kwork: деньги замораживаются на бирже, и я получаю их только после того, как вы примете работу.</p>
+  </div>
+</section>
+
+<div class="wrap final">
+  <div class="final-box">
+    <h2>Пришлите ссылку на вашу карточку в Яндекс Картах</h2>
+    <p>Соберу бесплатное демо и пришлю ссылку. Посмотрите, как сайт выглядит на вашем телефоне, а потом решим, какой тариф подходит.</p>
+    <div class="final-actions">
+      <a class="btn" href="https://t.me/MaxSmoll">Написать в Telegram</a>
+      <a class="btn btn-ghost" href="https://max.ru/u/f9LHodD0cOKWJ7ifAfs9Ckm4t7YH3zszXqfkqQuyvrZZg6iDipzBP9mNk2c">Написать в MAX</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <span>MaksX - Максим Смоляков. Сайты и автоматизация для малого бизнеса</span>
+    <a href="./">Работы и другие услуги</a>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var captions = {
+      "t-lite": "<b>Лайт - 10 000 ₽.</b> Цены, работы, отзывы и кнопки для связи.",
+      "t-book": "<b>С записью - 20 000 ₽.</b> Клиент сам выбирает день и время.",
+      "t-kino": "<b>Кино - 39 000 ₽.</b> Кадры сменяются при прокрутке, как в фильме."
+    };
+    var tabs = Array.prototype.slice.call(document.querySelectorAll(".tab"));
+    var caption = document.getElementById("caption");
+    function select(tab, focus) {
+      tabs.forEach(function (t) {
+        var on = t === tab;
+        t.setAttribute("aria-selected", on ? "true" : "false");
+        t.tabIndex = on ? 0 : -1;
+        document.getElementById(t.getAttribute("aria-controls")).classList.toggle("on", on);
+      });
+      caption.innerHTML = captions[tab.id];
+      if (focus) tab.focus();
+    }
+    tabs.forEach(function (t, i) {
+      t.addEventListener("click", function () { select(t); });
+      t.addEventListener("keydown", function (e) {
+        var d = e.key === "ArrowRight" ? 1 : e.key === "ArrowLeft" ? -1 : 0;
+        if (d) { e.preventDefault(); select(tabs[(i + d + tabs.length) % tabs.length], true); }
+      });
+    });
+    select(document.getElementById("t-book"));
+  })();
+</script>
+</body>
+</html>
